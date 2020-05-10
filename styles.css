@@ -1,0 +1,90 @@
+body {
+  margin: 0;
+  font-family: 'Quicksand', sans-serif;
+  color: #fff;
+  background-color: #303247;
+}
+
+h1,
+h2 {
+  font-family: 'Press Start 2P', cursive;
+  text-align: center;
+}
+
+.container {
+  max-width: 40em;
+  margin: auto;
+  padding: 1em;
+}
+
+canvas {
+  display: block;
+  margin: auto;
+  background-color: #303247;
+
+  background-image:
+    linear-gradient(white 1px, transparent 1px),
+    linear-gradient(90deg, white 1px, transparent 1px),
+    linear-gradient(rgba(255,255,255,.3) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.3) 1px, transparent 1px);
+  background-size: 64px 64px, 64px 64px, 12.8px 12.8px, 12.8px 12.8px;
+  background-position:-1px -1px, -1px -1px, -1px -1px, -1px -1px;
+
+  border: 1px solid #fff;
+}
+
+canvas:after {
+  content: '';
+  display: block;
+  padding-bottom: 100%;
+}
+
+#screen {
+  max-width: 40em;
+  max-height: 40em;
+  width: 90vw;
+  height: 90vw;
+}
+
+.starters {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(128px, 1fr));
+  grid-template-rows: auto 10em;
+  grid-gap: 2em;
+}
+
+.starters h2 {
+  grid-column: 1/-1;
+}
+
+button {
+  width: 100%;
+  margin: 1em auto;
+  padding: .5em 1em;
+  font-size: .8em;
+  font-family: 'Quicksand', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #fff;
+  background-color: #775a79;
+  outline: 0;
+  border: 0;
+  cursor: pointer;
+  box-shadow: 5px 5px 0 #3979c0;
+  transition: transform .3s ease,
+              box-shadow .3s ease;
+}
+
+button:hover {
+  transform: translate(5px, 5px);
+  box-shadow: 0 0 0 #3979c0;
+}
+
+footer {
+  padding: 2em 1em;
+  text-align: center;
+}
+
+a {
+  color: #fec901;
+}

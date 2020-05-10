@@ -1,0 +1,40 @@
+{
+  "env": {
+    "browser":  true,
+    "node":     true,
+    "amd":      true,
+    "commonjs": true,
+    "es6":      true,
+    "jasmine":  true
+  },
+  "globals": {
+    "Display": true,
+    "Grid": true,
+    "Location": true,
+    "Starters": true,
+    "UserInput": true
+  },
+  "extends": "eslint:recommended",
+  "parser": "babel-eslint",
+  "rules": {
+    "indent": [
+      "error",
+      2
+    ],
+    "linebreak-style": [
+      "error",
+      "unix"
+    ],
+    "quotes": [
+      "error",
+      "single"
+    ],
+    "semi": [
+      "error",
+      "always"
+    ],
+    "no-unused-vars": [
+      "error", { "vars": "local" }
+    ]
+  }
+}

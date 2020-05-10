@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Game of Life</title>
+  <meta name="description" content="The Game of Life coded in JavaScript, with cells that move at the rythm of the Bee Gees Stayin' Alive">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="Game of Life" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://octopusinvitro.github.io/game-of-life-js/" />
+  <meta property="og:image" content="https://avatars2.githubusercontent.com/u/2157089?s=460&u=dcdfffbc82f40b0fcc7409afbfc215d19e40186b&v=4" />
+  <meta name="og:description" content="The Game of Life coded in JavaScript, with cells that move at the rythm of the Bee Gees Stayin' Alive">
+
+  <link rel="apple-touch-icon" href="https://avatars2.githubusercontent.com/u/2157089?s=460&u=dcdfffbc82f40b0fcc7409afbfc215d19e40186b&v=4">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/6.0.0/normalize.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
+  <link href="styles.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container">
+    <h1 class="title">Game of Life</h1>
+
+    <p>Choose a starter and then hit start! You can chose several starters, and you can also add them while the animation is running! This is cool if you want to add to the patterns, or simply for when all your cells end up dead or end up in an oscillator.</p>
+
+    <section class="starters">
+      <h2>Choose a starter!</h2>
+
+      <div>
+        <canvas id="glider" width="103" height="103">
+          Your browser does not support canvas.
+        </canvas>
+        <button id="glider-button">Glider</button>
+      </div>
+
+      <div>
+        <canvas id="pentomino" width="103" height="103">
+          Your browser does not support canvas.
+        </canvas>
+        <button id="pentomino-button">R-Pentomino</button>
+      </div>
+
+      <div>
+        <canvas id="diehard" width="103" height="103">
+          Your browser does not support canvas.
+        </canvas>
+        <button id="diehard-button">Die Hard</button>
+      </div>
+
+      <div>
+        <canvas id="acorn" width="103" height="103">
+          Your browser does not support canvas.
+        </canvas>
+        <button id="acorn-button">Acorn</button>
+      </div>
+    </section>
+
+    <button id="start">Start</button>
+
+    <audio id="song" src="sounds/staying-alive.mp3"></audio>
+
+    <canvas id="screen" width="640" height="640">
+      Your browser does not support canvas.
+    </canvas>
+
+    <!-- <div>
+      Todo:
+      spacebar to pause and resume
+      click and draw
+      right click and erase
+    </div> -->
+
+    <footer>
+      <p>Music by <a href="https://soundcloud.com/umpwop">Sceptile</a></p>
+      <p>Code by <a href="http://octopusinvitro.tk">Octopus in Vitro</a></p>
+      <p><a href="https://github.com/octopusinvitro/game-of-life-js">GitHub repo</a></p>
+    </footer>
+  </div>
+
+  <script src="js/app.js"></script>
+
+  <script>
+    ;(function() {
+      window.addEventListener('load', () => {
+        let cellCount = 50;
+
+        let ids = {
+          start: 'start',
+          song: 'song',
+          canvas: 'screen'
+        };
+
+        let idsToStarters = [
+          { id: 'glider', starter: Starters.GLIDER },
+          { id: 'pentomino', starter: Starters.R_PENTOMINO },
+          { id: 'diehard', starter: Starters.DIE_HARD },
+          { id: 'acorn', starter: Starters.ACORN }
+        ];
+
+        (new UserInput(cellCount, ids, idsToStarters)).initialize();
+      });
+    })();
+  </script>
+</body>
+</html>
